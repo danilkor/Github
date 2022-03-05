@@ -4,6 +4,29 @@
 //
 // 
 
+//Получение числа между двумя заданными числами
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+//TO THE TOP BUTTON
+
+document.getElementById('topBtn').onclick = function(){
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    })
+}
+
+//TO THE BOTTOM BUTTON
+document.getElementById('botBtn').onclick = function(){
+    window.scrollTo({
+        top: 11111111, //Я не знаю как сделать низ, поэтому делал большое число чтоб наверняка
+        left: 0,
+        behavior: "smooth"
+    })
+}
 
 
 function pow2(p, x) {
@@ -401,7 +424,14 @@ function bbc() {
             "cost": 50,
             "img": "https://cdn4.iconfinder.com/data/icons/vegetables-60/48/Vegetable_corn_food_vegetable-128.png",
             "inStock": "Есть на складе"
+        },
+        "00025": {
+            "name": "Арбуз",
+            "cost": 80,
+            "img": "https://cdn1.iconfinder.com/data/icons/yummy-yummy/256/Asset_66-256.png",
+            "inStock": "Нету на складе"
         }
+        
     }
     console.log(goods);
     var outForMiniShop = "";
@@ -410,7 +440,7 @@ function bbc() {
         outForMiniShop +='<img src = "' + goods[key].img + '" width="128px"><br>';
         outForMiniShop +='Цена: ' + goods[key].cost + "<br>";
         outForMiniShop +=goods[key].inStock + "</div>";
-        console.log(outForMiniShop);
+        // console.log(outForMiniShop);
        
     }
     document.getElementById('miniShopOut').innerHTML = outForMiniShop;
@@ -419,7 +449,7 @@ bbc();
 
 // СОБЫТИЯ МЫШИ
     var mouseFunctions = document.getElementById('mouseFunctions'); 
-    console.log(mouseFunctions);
+    // console.log(mouseFunctions);
 
     // click
     mouseFunctions.onclick = function (){
@@ -459,6 +489,7 @@ bbc();
     }
 
     var mouseFunctionsCouner = 0;
+
     //при движении в блоке
     
     mouseFunctions.onmousemove = function(){
@@ -471,8 +502,39 @@ bbc();
     }
 
     //Картинка под мышкой
-    var Y_Y = document.getElementById('iconForMouseMove')
-    document.onmousemove = function(){
-        
+    // var arrows = document.getElementById('iconForMouseMove')
+    // document.onmousemove = function(event){
+    //     arrows.style.position = 'fixed';
+    //     arrows.style.left = event.clientX + 'px';
+    //     arrows.style.top = event.clientY + 'px';
+    // }
+
+  
+    document.getElementById('myslide').onmousemove = function(event){
+        //относительно родителя
+        var x = event.offsetX;
+        document.getElementById('myslide2').style.width = x + 'px'; 
+        document.getElementById('myslide2').style.transition = ' all linear'    
     }
+
+    document.getElementById('myslide').onmouseleave = function (event){
+        document.getElementById('myslide2').style.transition = 'all ease 500ms';
+        document.getElementById('myslide2').style.width = '375px'   
+    }
+
+    //Двигающийся круг
+
+    var movingCircleLeft = 0;
     
+    //При нажатии на кнопку
+    document.onkeydown = function (event){
+        console.log(event.key);
+        if(event.key == 'ArrowLeft') {
+            movingCircleLeft -= 50;
+            document.getElementById('movingCircle').style.left = movingCircleLeft + 'px';
+        }
+        if(event.key == 'ArrowRight') {
+            movingCircleLeft += 50;
+            document.getElementById('movingCircle').style.left = movingCircleLeft + 'px';
+        }
+    }
