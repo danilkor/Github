@@ -28,6 +28,13 @@ document.getElementById('botBtn').onclick = function(){
     })
 }
 
+//RELOAD BUTTON
+document.getElementById('relBtn').onclick = function(){
+
+    //Перезагрузить страницу
+    location.reload();
+}
+
 
 function pow2(p, x) {
 
@@ -448,93 +455,174 @@ function bbc() {
 bbc();
 
 // СОБЫТИЯ МЫШИ
-    var mouseFunctions = document.getElementById('mouseFunctions'); 
-    // console.log(mouseFunctions);
+var mouseFunctions = document.getElementById('mouseFunctions'); 
+// console.log(mouseFunctions);
 
-    // click
-    mouseFunctions.onclick = function (){
-        this.style.background = 'green';
+// click
+mouseFunctions.onclick = function (){
+    this.style.background = 'green';
+}
+
+//doubleClick
+mouseFunctions.ondblclick = function(){
+    this.style.background = 'orange';
+}
+
+//правая кнопка мыши
+mouseFunctions.oncontextmenu = function (){
+    this.style.background = 'blue';
+
+    //отключение контекстного меню
+    return false;
+}
+
+//при зажатии
+// mouseFunctions.onmousedown =  function (){
+//     this.style.background = 'cyan';
+//     console.log(event.button);
+// }
+
+//при отпускании
+// mouseFunctions.onmouseup = function (){
+//     this.style.background = 'pink';
+// }
+
+//Вход и выход :
+mouseFunctions.onmouseenter = function (){
+    this.style.background = 'gold';
+}
+mouseFunctions.onmouseleave = function (){
+    this.style.background = 'red';
+}
+
+var mouseFunctionsCouner = 0;
+
+//при движении в блоке
+
+mouseFunctions.onmousemove = function(){
+    this.style.marginLeft = mouseFunctionsCouner + 'px';
+    if (mouseFunctionsCouner <= 500){
+    mouseFunctionsCouner++;
+    } else {
+        mouseFunctionsCouner = 0;
     }
+}
 
-    //doubleClick
-    mouseFunctions.ondblclick = function(){
-        this.style.background = 'orange';
+//Картинка под мышкой
+// var arrows = document.getElementById('iconForMouseMove')
+// document.onmousemove = function(event){
+//     arrows.style.position = 'fixed';
+//     arrows.style.left = event.clientX + 'px';
+//     arrows.style.top = event.clientY + 'px';
+// }
+
+
+document.getElementById('myslide').onmousemove = function(event){
+    //относительно родителя
+    var x = event.offsetX;
+    document.getElementById('myslide2').style.width = x + 'px'; 
+    document.getElementById('myslide2').style.transition = ' all linear'    
+}
+
+document.getElementById('myslide').onmouseleave = function (event){
+    document.getElementById('myslide2').style.transition = 'all ease 500ms';
+    document.getElementById('myslide2').style.width = '375px'   
+}
+
+//Двигающийся круг
+
+var movingCircleLeft = 0;
+
+//При нажатии на кнопку
+document.onkeydown = function (event){
+    console.log(event.key);
+    if(event.key == 'ArrowLeft') {
+        movingCircleLeft -= 50;
+        document.getElementById('movingCircle').style.left = movingCircleLeft + 'px';
     }
-
-    //правая кнопка мыши
-    mouseFunctions.oncontextmenu = function (){
-        this.style.background = 'blue';
-
-        //отключение контекстного меню
-        return false;
+    if(event.key == 'ArrowRight') {
+        movingCircleLeft += 50;
+        document.getElementById('movingCircle').style.left = movingCircleLeft + 'px';
     }
+}
 
-    //при зажатии
-    // mouseFunctions.onmousedown =  function (){
-    //     this.style.background = 'cyan';
-    //     console.log(event.button);
-    // }
 
-    //при отпускании
-    // mouseFunctions.onmouseup = function (){
-    //     this.style.background = 'pink';
-    // }
+//Рисовалка
 
-    //Вход и выход :
-    mouseFunctions.onmouseenter = function (){
-        this.style.background = 'gold';
-    }
-    mouseFunctions.onmouseleave = function (){
-        this.style.background = 'red';
-    }
-
-    var mouseFunctionsCouner = 0;
-
-    //при движении в блоке
+for(i = 0; i<900; i++) {
+    // document.getElementById('naRicyu').innerHTML += '<div class="naRicyuBlock"></div>'
+    if(i%2 == 0) {
+        document.getElementById('naRicyu').innerHTML += '<div class="naRicyuBlock" style="background-color: yellow;"></div>'
+    } else {document.getElementById('naRicyu').innerHTML += '<div class="naRicyuBlock" style="background-color: blue;"></div>'}
     
-    mouseFunctions.onmousemove = function(){
-        this.style.marginLeft = mouseFunctionsCouner + 'px';
-        if (mouseFunctionsCouner <= 500){
-        mouseFunctionsCouner++;
-        } else {
-            mouseFunctionsCouner = 0;
-        }
+}
+
+let colNR = 'white';
+let mouseDown = 0;
+let greenCircleColNRPos = -5;
+
+document.onmousedown = function (){mouseDown = 1; console.log(mouseDown);}
+document.onmouseup = function (){mouseDown = 0;console.log(mouseDown);}
+
+document.getElementById('colNRBtn').onclick = function () {
+    for(i = 0; i < 900; i++){
+        document.getElementsByClassName('naRicyuBlock')[i].style.background = 'white';
     }
+}
 
-    //Картинка под мышкой
-    // var arrows = document.getElementById('iconForMouseMove')
-    // document.onmousemove = function(event){
-    //     arrows.style.position = 'fixed';
-    //     arrows.style.left = event.clientX + 'px';
-    //     arrows.style.top = event.clientY + 'px';
-    // }
+document.getElementById('colorsForNaRicyu').onclick = function (event){
+    if (event.target.id == 'whiteColNR'){ colNR = 'white'; greenCircleColNRPos = -5;}
+    if (event.target.id == 'redColNR'){ colNR = 'red'; greenCircleColNRPos = 50;}
+    if (event.target.id == 'greenColNR'){ colNR = 'rgb(0, 241, 32)'; greenCircleColNRPos = 105;}
+    if (event.target.id == 'blueColNR'){ colNR = 'blue'; greenCircleColNRPos = 160;}
+    if (event.target.id == 'yellowColNR'){ colNR = 'yellow'; greenCircleColNRPos = 215;}
+    if (event.target.id == 'purpleColNR'){ colNR = 'purple'; greenCircleColNRPos = 270;}
+    if (event.target.id == 'orangeColNR'){ colNR = 'orange'; greenCircleColNRPos = 325;}
+    if (event.target.id == 'greyColNR'){ colNR = 'grey'; greenCircleColNRPos = 380;}
+    if (event.target.id == 'blackColNR'){ colNR = 'black'; greenCircleColNRPos = 435;}
+    if (event.target.id == 'changingColNR'){ colNR = `rgb(${rNRch},${gNRch},${bNRch})`; greenCircleColNRPos = 490;}
+    // console.log(colNR);              
+    document.getElementById('greenCircleColNR').style.left = greenCircleColNRPos + 'px';
+} 
 
-  
-    document.getElementById('myslide').onmousemove = function(event){
-        //относительно родителя
-        var x = event.offsetX;
-        document.getElementById('myslide2').style.width = x + 'px'; 
-        document.getElementById('myslide2').style.transition = ' all linear'    
-    }
+//чтобы закрасить 1 клетку
+document.getElementById('naRicyu').onmousedown = function (event){
+    // console.log(event.target);
+    if (event.target.className == 'naRicyuBlock') event.target.style.background = colNR;
+}
+document.getElementById('naRicyu').onmousemove= function (event){
+    // console.log(event.target);
+    if (event.target.className == 'naRicyuBlock' && mouseDown == 1) event.target.style.background = colNR;
+}
+document.getElementById('naRicyu').oncontextmenu = function (event){
+    if (event.target.className == 'naRicyuBlock') event.target.style.background = 'white';
+    return false
+}
 
-    document.getElementById('myslide').onmouseleave = function (event){
-        document.getElementById('myslide2').style.transition = 'all ease 500ms';
-        document.getElementById('myslide2').style.width = '375px'   
-    }
+let rNRch = 0, bNRch = 0, gNRch = 0;
+document.getElementById('rNR').oninput = function(){
+    rNRch = document.getElementById('rNR').value;
+    document.getElementById('changingColNR').style.background = `rgb(${rNRch},${gNRch},${bNRch})`;
+    colNR = `rgb(${rNRch},${gNRch},${bNRch})`;
+}
+document.getElementById('gNR').oninput = function(){
+    gNRch = document.getElementById('gNR').value;
+    document.getElementById('changingColNR').style.background = `rgb(${rNRch},${gNRch},${bNRch})`;
+    colNR = `rgb(${rNRch},${gNRch},${bNRch})`;
+}
+document.getElementById('bNR').oninput = function(){
+    bNRch = document.getElementById('bNR').value;
+    document.getElementById('changingColNR').style.background = `rgb(${rNRch},${gNRch},${bNRch})`;
+    colNR = `rgb(${rNRch},${gNRch},${bNRch})`
+}
 
-    //Двигающийся круг
+//Local storage сохраняет данные даже после закрытия страницы
+window.onload = function(){
+    localStorage.setItem("HowMuchTimesYouWasHere", `${(parseInt(localStorage.HowMuchTimesYouWasHere) + 1)}`);
+    document.getElementById('howMuchTimesYouWasHere').innerHTML = localStorage.HowMuchTimesYouWasHere;
+}
 
-    var movingCircleLeft = 0;
-    
-    //При нажатии на кнопку
-    document.onkeydown = function (event){
-        console.log(event.key);
-        if(event.key == 'ArrowLeft') {
-            movingCircleLeft -= 50;
-            document.getElementById('movingCircle').style.left = movingCircleLeft + 'px';
-        }
-        if(event.key == 'ArrowRight') {
-            movingCircleLeft += 50;
-            document.getElementById('movingCircle').style.left = movingCircleLeft + 'px';
-        }
-    }
+document.getElementById('nullHowMuchTimesYouWasHere').onclick = function (){
+    localStorage.HowMuchTimesYouWasHere = 1;
+    document.getElementById('howMuchTimesYouWasHere').innerHTML = localStorage.HowMuchTimesYouWasHere;
+}
