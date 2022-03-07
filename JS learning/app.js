@@ -626,3 +626,108 @@ document.getElementById('nullHowMuchTimesYouWasHere').onclick = function (){
     localStorage.HowMuchTimesYouWasHere = 1;
     document.getElementById('howMuchTimesYouWasHere').innerHTML = localStorage.HowMuchTimesYouWasHere;
 }
+document.getElementById('leftMenu').onmouseenter = function (){
+    this.style.left = '0%';
+}
+document.getElementById('leftMenu').onmouseleave = function (){
+    this.style.left = '-18%';
+}
+
+//Время
+var date = new Date();
+let hour = date.getHours();
+let minute = date.getMinutes();
+console.log(hour, minute);
+
+//Стрелки
+let hourAr;
+let minuteAr;;
+
+function clockCheck(){
+    hour = date.getHours();
+    minute = date.getMinutes();
+
+    switch(hour){
+        case 0:
+            hourAr = 'rotate(0deg)'
+            break;
+        case 1:
+            hourAr = 'rotate(30deg)';
+            break;
+        case 2:
+            hourAr = 'rotate(60deg)';
+            break;
+        case 3:
+            hourAr = 'rotate(90deg)';
+            break;
+        case 4:
+            hourAr = 'rotate(120deg)';
+            break;
+        case 5:
+            hourAr = 'rotate(150deg)';
+            break;
+        case 6:
+            hourAr = 'rotate(180deg)';
+            break;
+        case 7:
+            hourAr = 'rotate(210deg)';
+            break;
+        case 8:
+            hourAr = 'rotate(240deg)';
+            break;
+        case 9:
+            hourAr = 'rotate(270deg)';
+            break;
+        case 10:
+            hourAr = 'rotate(300deg)';
+            break;
+        case 11:
+            hourAr = 'rotate(330deg)';
+            break;
+        case 12:
+            hourAr = 'rotate(360deg)';
+            break;
+        case 13:
+            hourAr = 'rotate(0deg)'
+            break;
+        case 14:
+            hourAr = 'rotate(30deg)';
+            break;
+        case 15:
+            hourAr = 'rotate(60deg)';
+            break;
+        case 16:
+            hourAr = 'rotate(90deg)';
+            break;
+        case 17:
+            hourAr = 'rotate(120deg)';
+            break;
+        case 18:
+            hourAr = 'rotate(150deg)';
+            break;
+        case 19:
+            hourAr = 'rotate(180deg)';
+            break;
+        case 20:
+            hourAr = 'rotate(210deg)';
+            break;
+        case 21:
+            hourAr = 'rotate(240deg)';
+            break;
+        case 22:
+            hourAr = 'rotate(270deg)';
+            break;
+        case 23:
+            hourAr = 'rotate(300deg)';
+            break;
+        case 24:
+            hourAr = 'rotate(330deg)';
+            break;
+    }
+    
+    document.querySelector('#hourClock').style.transform = hourAr;
+    console.log(hourAr);
+}
+
+//Часы
+var clockTimer = setInterval(clockCheck, 5000);

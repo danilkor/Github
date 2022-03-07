@@ -17,142 +17,139 @@
     <!-- Перезагрузка -->
     <button id="relBtn"><img class="relBtn" src="img/111057_reload_arrow_icon.png" alt="" width="50px" height="50px"></button>
 
+    <!-- Меню -->
+    <div id="leftMenu">
+        <div id="clock">
+            <div id="minuteClock"><img id="minute" src="img/Clock arrow.png" alt=""></div>
+            <div id="hourClock"><img id="hour" src="img/Clock arrow.png" alt=""></div>
+        </div>
+    </div>
 
-    <p>
-        <h2>Ты загружал страницу <b id="howMuchTimesYouWasHere"></b> раз</h2><br>
-        <button id='nullHowMuchTimesYouWasHere'>Обнулить</button>
-    </p>
-
-    <!-- ^2 -->
-    <p>
-        <h2>Возведение в степень</h2>
-        Введите число <input type="text" name="" id="inp1"><br>
-        <button onclick="pow2()">x^2</button><br>
-        Результат: <span id="result"></span>
-    </p>
-
-    <!-- random number -->
-    <p>
-        <h2>Генерация рандомного числа</h2>
-        <button onclick="genrand()">СГЕНЕРИРОВАТЬ</button><br>
-        Результат: <span id="result2"></span>
-    </p>
-
-    <!-- repeated action -->
-    <p>
-        <h2>Цикл for()</h2>
-        Введите кол-во повторов <input type="text" name="" id="repeatTimes"><br>
-        <button onclick="repeatedAction()"  >Начать повторение</button><br>
-        Результат: <span id="result3"></span>
-    </p>
-    <p>
-        <h2>Цикл while()</h2>
-        Введите кол-во повторов <input type="text" name="" id="repeatTimesW"><br>
-        <button onclick="repeatedActionW()"  >Начать повторение</button><br>
-        Результат: <span id="result4"></span>
-    </p>
-    <!-- Цыкл с таймером -->
-        <h2>Цикл с таймером</h2>
-        Введите кол-во повторов <input type="text" name="" id="repeatTimesTimer"><br>
-        <button onclick="repeatedActionTimer()">Начать повторение</button><br>
-        Результат: <span id="result5"></span>
-
-
-    
-    <p>
-        <h2>Слайдер</h2>
-        <div id="slider1">
-            <div id="polosa1">
-                <img src="img/1164347_instagram_logo_media_network_new_icon.png" alt="" width="128px">
-                <img src="img/294709_circle_twitter_icon.png" alt="" width="128px">
-                <img src="img/317714_video_youtube_icon.png" alt="" width="128px">
-                <img src="img/317752_facebook_social media_social_icon.png" alt="" width="128px">
-                <img src="img/4202002_apps_google_googleplay_play_logo_icon.png" alt="" width="128px">
-                <img src="img/4375116_logo_twitch_icon.png" alt="" width="128px">
-                <img src="img/1298745_google_brand_branding_logo_network_icon.png" alt="" width="128px">
+    <div class="AllSiteIsHere">
+        <p>
+            <h2>Кол-во загрузок страницы - <b id="howMuchTimesYouWasHere"></b></h2><br>
+            <button id='nullHowMuchTimesYouWasHere'>Обнулить</button>
+        </p>
+        <!-- ^2 -->
+        <p>
+            <h2>Возведение в степень</h2>
+            Введите число <input type="text" name="" id="inp1"><br>
+            <button onclick="pow2()">x^2</button><br>
+            Результат: <span id="result"></span>
+        </p>
+        <!-- random number -->
+        <p>
+            <h2>Генерация рандомного числа</h2>
+            <button onclick="genrand()">СГЕНЕРИРОВАТЬ</button><br>
+            Результат: <span id="result2"></span>
+        </p>
+        <!-- repeated action -->
+        <p>
+            <h2>Цикл for()</h2>
+            Введите кол-во повторов <input type="text" name="" id="repeatTimes"><br>
+            <button onclick="repeatedAction()"  >Начать повторение</button><br>
+            Результат: <span id="result3"></span>
+        </p>
+        <p>
+            <h2>Цикл while()</h2>
+            Введите кол-во повторов <input type="text" name="" id="repeatTimesW"><br>
+            <button onclick="repeatedActionW()"  >Начать повторение</button><br>
+            Результат: <span id="result4"></span>
+        </p>
+        <!-- Цыкл с таймером -->
+            <h2>Цикл с таймером</h2>
+            Введите кол-во повторов <input type="text" name="" id="repeatTimesTimer"><br>
+            <button onclick="repeatedActionTimer()">Начать повторение</button><br>
+            Результат: <span id="result5"></span>
+        
+        <p>
+            <h2>Слайдер</h2>
+            <div id="slider1">
+                <div id="polosa1">
+                    <img src="img/1164347_instagram_logo_media_network_new_icon.png" alt="" width="128px">
+                    <img src="img/294709_circle_twitter_icon.png" alt="" width="128px">
+                    <img src="img/317714_video_youtube_icon.png" alt="" width="128px">
+                    <img src="img/317752_facebook_social media_social_icon.png" alt="" width="128px">
+                    <img src="img/4202002_apps_google_googleplay_play_logo_icon.png" alt="" width="128px">
+                    <img src="img/4375116_logo_twitch_icon.png" alt="" width="128px">
+                    <img src="img/1298745_google_brand_branding_logo_network_icon.png" alt="" width="128px">
+                </div>
             </div>
-        </div>
-        <button onclick="slider1Left()">Left</button><button onclick='slider1Right()' class="right">Right</button>
-    </p>
-    <p>
-        <h2>CSS generator</h2>
-        <div class="cssGenSpan">border-radius: <input type="range" min="0" max="50" id="cssGeneratorInBR" value="0"></div><br>
-        <div class="cssGenSpan">height: <input type="range" min="200" max="400" id="cssGeneratorInHeight" value="0"></div><br>
-        <div class="cssGenSpan">width: <input type="range" min="200" max="400" id="cssGeneratorInWidth" value="0"></div><br>
-        <div class="cssGenSpan">border-width: <input type="range" min="0" max="15" id="cssGeneratorInBorderWidth" value="0"></div>
-
-        <!-- Сделать изменение цвета (rgb(x, y, z)) -->
-        <hr>
-        <div id="cssGeneratorVisible"></div>
-        <hr>
-        <textarea id="cssGenOut"></textarea>
-    </p>
-    <p>
-        <h2>radiobutton</h2>
-        <div><input type="radio" name="yesNo" value="yes">Да</div>
-        <div><input type="radio" name="yesNo" value="no">Нет</div>
-        <button onclick='radioButtonSubmit()'>...</button>
-    </p>
-   
-
-    <!-- массивы -->
-    <h1><marquee behavior="alternate" direction="left" scroll >МАССИВЫ</marquee></h1>
-    <!-- Индексные -->
-    <p>
-        <h2>Запись и стирание данных массива</h2>
-        Введите то, что хотите запсать в массив <input type="text" id="inpMassive1"><br>
-        <button onclick='massive1In("inpMassive1")'>Push</button><button onclick='massive1Pop()'>Pop</button><button onclick='massive1ClearAll()'>Стереть всё</button><br>
-        Результат: <span id="result6"></span>
-    </p>
-
-    <!-- Ассоциативные -->
-    <p>
-        <h2>Мини витрина</h2>
-        <div class="miniShopOut" id="miniShopOut"></div>
-    </p>
-
-    <!-- Mouse functions -->
-    <p>
-        <h2>События мыши</h2>
-        <div class="mouseFunctions" id="mouseFunctions"></div>
-    </p>
-
-    <!-- Мусор -->
-    <!-- <img src="img/iconForMouseMove.png" alt="" id="iconForMouseMove"> -->
-
-    <!-- before and afters -->
-    <p>
-        <h2>До и после</h2>
-        <div id="myslide">
-            <div id="myslide1"><img src="img/slide_1.png" alt=""></div>
-            <div id="myslide2"><img src="img/slide_2.png" alt=""></div>
-        </div>
-    </p>
-    <p>
-        <h2>Круг</h2>
-        <div id="movingCircle"></div>
-    </p>
-    <p>
-        <h2>На рисуй</h2>
-        <div id="naRicyu"></div>
-        <div id="colorsForNaRicyu">
-            <div id="whiteColNR" class="colNR"></div>
-            <div id="redColNR" class="colNR"></div>
-            <div id="greenColNR" class="colNR"></div>
-            <div id="blueColNR" class="colNR"></div>
-            <div id="yellowColNR" class="colNR"></div>
-            <div id="purpleColNR" class="colNR"></div>
-            <div id="orangeColNR" class="colNR"></div>
-            <div id="greyColNR" class="colNR"></div>
-            <div id="blackColNR" class="colNR"></div>
-            <div id="changingColNR" class="colNR"></div>
-            <div id="greenCircleColNR"></div>
-        </div>
-        <button id="colNRBtn"><img src="img/111057_reload_arrow_icon.png" alt="" width="50px" height="50px" id="imgColNRBtn"></button>
-        <input type="range" id="rNR" min="0" max="255"><br>
-        <input type="range" id="gNR" min="0" max="255"><br>
-        <input type="range" id="bNR" min="0" max="255">
-    </p>
+            <button onclick="slider1Left()">Left</button><button onclick='slider1Right()' class="right">Right</button>
+        </p>
+        <p>
+            <h2>CSS generator</h2>
+            <div class="cssGenSpan">border-radius: <input type="range" min="0" max="50" id="cssGeneratorInBR" value="0"></div><br>
+            <div class="cssGenSpan">height: <input type="range" min="200" max="400" id="cssGeneratorInHeight" value="0"></div><br>
+            <div class="cssGenSpan">width: <input type="range" min="200" max="400" id="cssGeneratorInWidth" value="0"></div><br>
+            <div class="cssGenSpan">border-width: <input type="range" min="0" max="15" id="cssGeneratorInBorderWidth" value="0"></div>
+            <!-- Сделать изменение цвета (rgb(x, y, z)) -->
+            <hr>
+            <div id="cssGeneratorVisible"></div>
+            <hr>
+            <textarea id="cssGenOut"></textarea>
+        </p>
+        <p>
+            <h2>radiobutton</h2>
+            <div><input type="radio" name="yesNo" value="yes">Да</div>
+            <div><input type="radio" name="yesNo" value="no">Нет</div>
+            <button onclick='radioButtonSubmit()'>...</button>
+        </p>
+        <!-- массивы -->
+        <h1><marquee behavior="alternate" direction="left" scroll >МАССИВЫ</marquee></h1>
+        <!-- Индексные -->
+        <p>
+            <h2>Запись и стирание данных массива</h2>
+            Введите то, что хотите запсать в массив <input type="text" id="inpMassive1"><br>
+            <button onclick='massive1In("inpMassive1")'>Push</button><button onclick='massive1Pop()'>Pop</button><button onclick='massive1ClearAll()'>Стереть всё</button><br>
+            Результат: <span id="result6"></span>
+        </p>
+        <!-- Ассоциативные -->
+        <p>
+            <h2>Мини витрина</h2>
+            <div class="miniShopOut" id="miniShopOut"></div>
+        </p>
+        <!-- Mouse functions -->
+        <p>
+            <h2>События мыши</h2>
+            <div class="mouseFunctions" id="mouseFunctions"></div>
+        </p>
+        <!-- Мусор -->
+        <!-- <img src="img/iconForMouseMove.png" alt="" id="iconForMouseMove"> -->
+        <!-- before and afters -->
+        <p>
+            <h2>До и после</h2>
+            <div id="myslide">
+                <div id="myslide1"><img src="img/slide_1.png" alt=""></div>
+                <div id="myslide2"><img src="img/slide_2.png" alt=""></div>
+            </div>
+        </p>
+        <p>
+            <h2>Круг</h2>
+            <div id="movingCircle"></div>
+        </p>
+        <p>
+            <h2>На рисуй</h2>
+            <div id="naRicyu"></div>
+            <div id="colorsForNaRicyu">
+                <div id="whiteColNR" class="colNR"></div>
+                <div id="redColNR" class="colNR"></div>
+                <div id="greenColNR" class="colNR"></div>
+                <div id="blueColNR" class="colNR"></div>
+                <div id="yellowColNR" class="colNR"></div>
+                <div id="purpleColNR" class="colNR"></div>
+                <div id="orangeColNR" class="colNR"></div>
+                <div id="greyColNR" class="colNR"></div>
+                <div id="blackColNR" class="colNR"></div>
+                <div id="changingColNR" class="colNR"></div>
+                <div id="greenCircleColNR"></div>
+            </div>
+            <button id="colNRBtn"><img src="img/111057_reload_arrow_icon.png" alt="" width="50px" height="50px" id="imgColNRBtn"></button>
+            <input type="range" id="rNR" min="0" max="255"><br>
+            <input type="range" id="gNR" min="0" max="255"><br>
+            <input type="range" id="bNR" min="0" max="255">
+        </p>
+    </div>
 
     
     
